@@ -28,7 +28,7 @@ client information, research, and context for future AI conversations.
 - ✅ README.md updated with AI Quick Start
 - ✅ Create first real client profile
 - ✅ Test context loading with AGENTS.md in fresh chat session
-- ⏳ Test self-annealing improvement proposals
+- ✅ Test self-annealing improvement proposals
 
 ## Architecture Decisions
 - **Storage**: Markdown files with YAML frontmatter
@@ -65,7 +65,7 @@ knowledge-base/
 7. ✅ Create additional templates (research-notes, meeting-notes, daily-log, project-update)
 8. ✅ Create first real client profile
 9. ✅ Open new chat and test AGENTS.md loading
-10. ⏳ Test self-annealing improvement detection
+10. ✅ Test self-annealing improvement detection
 
 ## Token Management Strategy
 - Relevance threshold: 0.75
@@ -124,6 +124,6 @@ After completing tasks, update this file with new status and commit.
 None currently
 
 ## Next 3 Tasks
-1. Complete self-annealing test (use tag cleanup as test case)
+1. ✅ Complete self-annealing test (use tag cleanup as test case)
 2. Define Mobile Access Strategy (prioritizing next open question)
 3. Use system for real work and observe self-annealing in action
