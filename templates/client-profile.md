@@ -1,12 +1,18 @@
 ---
-client_name: ""
+# REQUIRED FIELDS (per AGENTS.md):
+# title: "string" - REQUIRED: Brief, descriptive title
+# created: "YYYY-MM-DD" - REQUIRED: Creation date
+# last_updated: "YYYY-MM-DD" - REQUIRED: Update date
+# status: "active|completed|archived" - REQUIRED: See AGENTS.md for folder-specific values
+# tags: [] - REQUIRED: Array of relevant tags (lowercase, hyphens for multi-word)
+title: ""
 created: "YYYY-MM-DD"
 last_updated: "YYYY-MM-DD"
-status: "active|completed|archived"
+status: "active"
 tags: []
 ---
 
-# Client Profile: {{client_name}}
+# Client Profile: {{title}}
 
 ## Basic Information
 - **Name**: 
@@ -53,6 +59,11 @@ tags: []
 - [ ] Task 3
 
 ---
-**Created**: {{created}}  
-**Last Updated**: {{last_updated}}  
-**Status**: {{status}}
+
+<!-- QUICK VALIDATION CHECKLIST (delete after creating):
+- [ ] title field is filled in (not client_name)
+- [ ] created and last_updated dates are correct
+- [ ] status is one of: active, completed, archived
+- [ ] tags are lowercase with hyphens (e.g., "career-transition")
+- [ ] File saved as clients/[name].md with lowercase and hyphens
+-->

@@ -75,6 +75,27 @@ tags: []                  # REQUIRED: Array of relevant tags
 
 ---
 
+## Template Validation (Rules)
+
+### REQUIRED: When Creating Files from Templates
+1. **Always use template files** from `templates/` folder
+2. **Delete the validation checklist** after creating the file
+3. **Verify frontmatter fields** match the REQUIRED schema exactly:
+   - Must use `title` field (not `client_name`, `project_name`, etc.)
+   - All 5 required fields must be present
+   - No duplicate fields
+4. **Remove redundant metadata** - frontmatter already contains dates and status
+5. **Use validation checklist** at bottom of templates when available
+
+### Common Template Violations to Avoid
+- ❌ Using `client_name` instead of `title`
+- ❌ Leaving `YYYY-MM-DD` placeholder dates
+- ❌ Duplicate `tags` arrays
+- ❌ Copying template footer metadata (redundant with frontmatter)
+- ❌ Forgetting to delete the validation checklist comment
+
+---
+
 ## Token Management (Rules)
 
 ### REQUIRED: Token Budgets
@@ -337,6 +358,7 @@ Track major system changes here:
 | Date | Change | Reason |
 |------|--------|--------|
 | 2026-02-04 | Initial AGENTS.md created | Establish self-annealing system |
+| 2026-02-04 | Added Template Validation section + updated client-profile template | Fix schema violations (client_name→title, duplicates, redundant metadata) |
 
 ---
 

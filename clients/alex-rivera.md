@@ -1,5 +1,5 @@
 ---
-client_name: "Alex Rivera"
+title: "Alex Rivera"
 created: "2026-02-04"
 last_updated: "2026-02-04"
 status: "active"
@@ -55,6 +55,3 @@ Alex is motivated and has strong technical background. Main challenge is articul
 - [ ] Schedule follow-up to discuss target companies
 
 ---
-**Created**: 2026-02-04  
-**Last Updated**: 2026-02-04  
-**Status**: active
