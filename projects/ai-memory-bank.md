@@ -114,9 +114,9 @@ After completing tasks, update this file with new status and commit.
 
 ## Resolved Decisions
 - **Encryption Strategy**: Rely on local security (OS/Disk) and GitHub private repository security for now. (Temporarily Resolved: 2026-02-04)
+- **Mobile Access Strategy**: On hold. Rely on Git/Markdown file access via existing file sync tools for now. (On Hold: 2026-02-04)
 
 ## Open Questions
-- Mobile access priority?
 - Integration with Obsidian/Notion?
 - When to add API layer?
 
@@ -125,5 +125,5 @@ None currently
 
 ## Next 3 Tasks
 1. ✅ Complete self-annealing test (use tag cleanup as test case)
-2. Define Mobile Access Strategy (prioritizing next open question)
+2. Define Obsidian/Notion Integration Strategy (prioritizing next open question)
 3. Use system for real work and observe self-annealing in action
