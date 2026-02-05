@@ -1,6 +1,5 @@
 ---
 title: ""
-project: ""
 created: "YYYY-MM-DD"
 last_updated: "YYYY-MM-DD"
 period: "sprint|week|month|milestone"

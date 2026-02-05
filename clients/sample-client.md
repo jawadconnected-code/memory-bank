@@ -1,5 +1,5 @@
 ---
-client_name: "Sample Client - Tech Career Pivot"
+title: "Sample Client - Tech Career Pivot"
 created: "2024-01-15"
 last_updated: "2024-01-15"
 status: "active"
@@ -48,12 +48,3 @@ tags: ["career-pivot", "tech", "cv-redesign", "sample"]
 This is a sample client profile to demonstrate the memory bank system. Replace with actual client information.
 
 ## Action Items
-- [ ] Review master file and extract key selling points
-- [ ] Draft new resume emphasizing PM skills
-- [ ] Create cover letter template
-- [ ] Schedule follow-up meeting
-
----
-**Created**: 2024-01-15  
-**Last Updated**: 2024-01-15  
-**Status**: Active (Sample)

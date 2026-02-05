@@ -3,8 +3,8 @@
 ## Current Status
 ✅ Folder structure created  
 ✅ Initial files generated  
-⏳ Git repository initialization (requires manual setup)  
-⏳ GitHub repository creation (requires manual setup)  
+✅ Git repository initialized  
+✅ GitHub repository created  
 
 ## Step 1: Install Git (if not installed)
 
@@ -94,9 +94,9 @@ Search my knowledge base for anything related to [topic]
 
 1. ✅ Git repository initialized
 2. ✅ Files pushed to GitHub
-3. ⏳ Create your first real client profile using the template
-4. ⏳ Test loading context in a new OpenCode chat
-5. ⏳ Start using the system for real work
+3. ☐ Create your first real client profile using the template
+4. ☐ Test loading context in a new OpenCode chat
+5. ☐ Start using the system for real work
 
 ## Troubleshooting
 

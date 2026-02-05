@@ -1,8 +1,8 @@
 ---
 title: "AI Memory Bank System"
 status: "in_progress"
-created: 2024-01-15
-last_updated: 2026-02-04
+created: "2024-01-15"
+last_updated: "2026-02-04"
 tags: ["ai", "productivity", "knowledge-management", "self-annealing"]
 ---
 

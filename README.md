@@ -29,27 +29,13 @@ Initializing memory bank session. Loading knowledge-base/AGENTS.md and scanning 
 
 ## Your Next Steps (In Order)
 
-### Step 1: Initialize Git Repository
+### Step 1: Verify Git Repository
 ```bash
 cd knowledge-base
-git init
-git add .
-git commit -m "Initial memory bank setup"
+git status
 ```
 
-### Step 2: Create GitHub Repository
-1. Go to github.com
-2. Create new repository (name: `memory-bank`)
-3. **Do NOT** initialize with README (we already have one)
-4. Follow GitHub's instructions to push existing repository
-
-### Step 3: Test the System
-1. Create a new file in `/clients/test-client.md`
-2. Add some content
-3. Commit and push
-4. Open new chat, tell AI: "Load my memory bank context from `knowledge-base/projects/ai-memory-bank.md`"
-
-### Step 4: Start Using It
+### Step 2: Start Using It
 Begin storing memories by telling the AI to save information. Example:
 - "Save this client profile to memory bank"
 - "Add this research finding to my knowledge base"
@@ -94,10 +80,12 @@ The AI will then automatically:
 "I'm working on the AI Memory Bank project. Load the latest context."
 
 ## Git Workflow
+For detailed setup, see [SETUP.md](SETUP.md).
+
 ```bash
 # After making changes
 git add .
-git commit -m "Added client profile for [name]"
+git commit -m "Added: [Brief description]"
 git push origin main
 ```
 
