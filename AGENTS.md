@@ -6,6 +6,13 @@
 - [ ] You have loaded this AGENTS.md file
 - [ ] You understand the self-annealing mandate (see below)
 - [ ] You have scanned the folder structure
+- [ ] You have read workspace foundation files (if new session)
+
+**Foundation Files (read on fresh session):**
+- `SOUL.md` - KB assistant personality and operating principles
+- `USER.md` - User preferences, projects, and context
+- `TOOLS.md` - Search tools, citation preferences, workflow shortcuts
+- `BOOTSTRAP.md` - Setup guide and recovery procedures (optional reference)
 
 **If this is a fresh session, say:** *"Initializing memory bank session. Loading knowledge-base/AGENTS.md and scanning folder structure."*
 
@@ -15,8 +22,14 @@
 
 ### For AI Assistants
 1. **Load this file first** on every new session
-2. **Scan the folder structure** to understand current state
-3. **Check relevant folders** based on user's query:
+2. **Load workspace foundation files** (fresh session only):
+   - `SOUL.md` - KB assistant personality and operating principles
+   - `USER.md` - User preferences, projects, and context
+   - `TOOLS.md` - Search tools, citation preferences, workflow shortcuts
+3. **Scan the folder structure** to understand current state
+4. **Check for active build**:
+   - `BUILD.md` - If exists, read it first (crash recovery)
+5. **Check relevant folders** based on user's query:
    - `clients/` - People profiles, interviews, CVs
    - `ideas/` - App concepts, business ideas
    - `research/` - Technical findings, market research
@@ -24,13 +37,13 @@
    - `contexts/` - Conversation summaries
    - `memory/` - Daily logs (YYYY-MM-DD.md)
    - `templates/` - Reusable file templates
-4. **Check memory files** on session start:
+6. **Check memory files** on session start:
    - `MEMORY.md` - Curated long-term memory (direct context only)
    - `memory/YYYY-MM-DD.md` - Today's and yesterday's daily logs
    - `HEARTBEAT.md` - Proactive reminders checklist
-5. **Follow token management** rules (see below)
-6. **Commit changes** after any file edits
-7. **Propose improvements** when you detect friction
+7. **Follow token management** rules (see below)
+8. **Commit changes** after any file edits
+9. **Propose improvements** when you detect friction
 
 ### Standard Search Patterns
 ```
@@ -45,6 +58,50 @@ grep -r "last_updated.*$(date +%Y-%m)" --include="*.md"
 
 # Search guide - see SEARCH.md for full patterns
 ```
+
+---
+
+## Workspace Foundation Files
+
+The knowledge base has core files that define its operation:
+
+| File | Purpose | When to Read |
+|------|---------|--------------|
+| **SOUL.md** | KB assistant personality and operating principles | When behavior matters |
+| **USER.md** | User preferences, projects, and context | When personalization matters |
+| **TOOLS.md** | Search tools, citations, workflow shortcuts | When working with content |
+| **AGENTS.md** | Operational rules and workflows | Always |
+| **MEMORY.md** | Curated decisions and preferences | When relevant to task |
+| **HEARTBEAT.md** | Proactive reminders | Active sessions |
+| **BOOTSTRAP.md** | Setup guide and recovery procedures | Initial setup or recovery |
+
+### SOUL.md
+Defines who the KB assistant is:
+- Core truths (helpfulness, opinions, resourcefulness)
+- Boundaries and safety rules
+- Operating principles
+- Communication style and vibe
+
+### USER.md
+Documents the user:
+- Name, pronouns, timezone
+- Current projects and goals
+- Organization preferences
+- Pet peeves and what makes them happy
+
+### TOOLS.md
+Documents the toolchain:
+- Preferred search methods and patterns
+- Citation preferences
+- Export formats
+- Workflow shortcuts and aliases
+
+### BOOTSTRAP.md
+Complete lifecycle guide:
+- Initial setup procedures
+- Daily workflow reference
+- Recovery procedures for crashes
+- Common tasks quick reference
 
 ---
 
@@ -166,6 +223,55 @@ tags: []                  # REQUIRED: Array of relevant tags
 - Consolidate daily log insights into MEMORY.md weekly
 - Remove outdated decisions from MEMORY.md during health checks
 - Keep daily logs as raw logs, MEMORY.md as curated content
+
+---
+
+## Build Tracking (Rules)
+
+### When to Use BUILD.md
+Create a BUILD.md file when:
+- Working on multi-file implementations
+- Implementing features that span multiple files
+- Need to track progress across several tasks
+- Want crash recovery capability
+
+### BUILD.md Workflow
+
+**Starting a Build:**
+```
+1. Check if BUILD.md already exists (interrupted build?)
+2. Create new BUILD.md from template
+3. List all tasks with descriptions
+4. Commit: "Started: [build description]"
+5. Git tag: `build-start-YYYY-MM-DD-HHMM`
+```
+
+**During Build:**
+```
+1. Mark task as "in progress" with timestamp
+2. Complete task work
+3. Mark task as done with [x] and timestamp
+4. Commit: "[Action]: [task description]"
+5. Update progress summary
+```
+
+**Completing a Build:**
+```
+1. Mark all tasks complete
+2. Update status to "completed"
+3. Commit: "Completed: [build description]"
+4. Git tag: `build-complete-YYYY-MM-DD-HHMM`
+5. Move BUILD.md to archive/builds/
+```
+
+### Crash Recovery
+```
+1. Read BUILD.md
+2. Check status and completed tasks
+3. Identify in-progress task
+4. Check git log for context
+5. Resume from first incomplete item
+```
 
 ---
 
@@ -452,6 +558,8 @@ Track major system changes here:
 | 2026-02-05 | Added Memory System (daily logs, MEMORY.md, HEARTBEAT.md) | Adopt OpenClaw patterns for session memory |
 | 2026-02-05 | Added SEARCH.md + scalability trigger at 500 files | Grep-based search with upgrade path to vector search |
 | 2026-02-05 | Integrated memory hygiene into self-annealing + health checks | Automated memory maintenance |
+| 2026-02-05 | Added workspace foundation files (SOUL.md, USER.md, TOOLS.md, BOOTSTRAP.md) | Define assistant personality and user context |
+| 2026-02-05 | Added BUILD.md template + build tracking workflow | Multi-file build management with crash recovery |
 
 ---
 
@@ -468,5 +576,5 @@ If you encounter problems with this system:
 ---
 
 **Last Updated**: 2026-02-05  
-**Version**: 1.1  
+**Version**: 1.2  
 **Status**: Active
