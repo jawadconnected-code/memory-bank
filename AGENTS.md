@@ -22,10 +22,15 @@
    - `research/` - Technical findings, market research
    - `projects/` - Active work, status tracking
    - `contexts/` - Conversation summaries
+   - `memory/` - Daily logs (YYYY-MM-DD.md)
    - `templates/` - Reusable file templates
-4. **Follow token management** rules (see below)
-5. **Commit changes** after any file edits
-6. **Propose improvements** when you detect friction
+4. **Check memory files** on session start:
+   - `MEMORY.md` - Curated long-term memory (direct context only)
+   - `memory/YYYY-MM-DD.md` - Today's and yesterday's daily logs
+   - `HEARTBEAT.md` - Proactive reminders checklist
+5. **Follow token management** rules (see below)
+6. **Commit changes** after any file edits
+7. **Propose improvements** when you detect friction
 
 ### Standard Search Patterns
 ```
@@ -37,6 +42,8 @@ grep -r "tag_name" --include="*.md"
 
 # Find recent updates
 grep -r "last_updated.*$(date +%Y-%m)" --include="*.md"
+
+# Search guide - see SEARCH.md for full patterns
 ```
 
 ---
@@ -114,6 +121,51 @@ tags: []                  # REQUIRED: Array of relevant tags
 - Split large files at logical boundaries (sections, topics)
 - Use clear headers for easy navigation
 - Cross-reference related content instead of duplicating
+
+### Scalability Trigger
+- **Current file count**: 12 markdown files
+- **Reassessment threshold**: 500 files
+- **When triggered**: Evaluate semantic search (vector embeddings) vs grep-based search
+- **Trigger action**: Self-annealing health check will flag when file count reaches 400
+- **Search guide**: See `SEARCH.md` for current grep patterns
+
+---
+
+## Memory System (Rules)
+
+### Memory Files Overview
+- `MEMORY.md` - Curated long-term memory (decisions, preferences, constraints)
+- `memory/YYYY-MM-DD.md` - Daily logs for running context
+- `HEARTBEAT.md` - Proactive reminders and check-in guidelines
+
+### REQUIRED: Session Start Memory Loading
+1. **Always load** AGENTS.md
+2. **Load MEMORY.md** if in direct context (not group/shared contexts)
+3. **Load today's and yesterday's daily logs** from `memory/`
+4. **Load HEARTBEAT.md** for proactive contribution guidelines
+
+### MEMORY.md Rules
+- **SECURITY**: Only load in direct context, never in group/shared contexts
+- **Content**: Decisions, preferences, constraints, open loops
+- **Maintenance**: Update during health checks (consolidate from daily logs)
+- **Format**: See MEMORY.md template for structure
+
+### Daily Log Rules
+- **Location**: `memory/YYYY-MM-DD.md`
+- **When to write**: After significant work sessions
+- **Content**: Key activities, decisions, learnings, open loops
+- **Template**: Use `templates/daily-log.md`
+
+### HEARTBEAT.md Usage
+- **When to check**: 2-4 times per day during active sessions
+- **What to check**: KB updates, project status, context freshness, self-annealing
+- **Proactive actions**: Allowed without asking (read, update, commit, search)
+- **Boundaries**: Follow quiet time rules (HEARTBEAT_OK)
+
+### Memory Hygiene
+- Consolidate daily log insights into MEMORY.md weekly
+- Remove outdated decisions from MEMORY.md during health checks
+- Keep daily logs as raw logs, MEMORY.md as curated content
 
 ---
 
@@ -193,6 +245,14 @@ After each session, evaluate:
 
 **If YES → Propose architectural improvements**
 
+#### Memory Hygiene
+- [ ] Daily logs written for active work periods?
+- [ ] MEMORY.md updated with recent decisions/facts?
+- [ ] Old daily logs consolidated into MEMORY.md?
+- [ ] HEARTBEAT checklist reviewed and current?
+
+**If YES → Memory maintenance needed**
+
 ### REQUIRED: Improvement Proposal Template
 When proposing improvements, use this format:
 
@@ -248,6 +308,18 @@ When proposing improvements, use this format:
 ### Orphan Files
 - [ ] Files with no tags or cross-references: [list]
 - [ ] Action needed: [yes/no]
+
+### Memory System Health
+- [ ] Daily logs present for last 7 days: [yes/no]
+- [ ] MEMORY.md last updated: [date]
+- [ ] Decisions captured in MEMORY.md: [count]
+- [ ] HEARTBEAT.md last reviewed: [date]
+- [ ] Memory maintenance performed: [date]
+
+### Scalability Check
+- [ ] Current file count: [X]
+- [ ] Reassessment threshold (500) approaching: [yes/no]
+- [ ] Search performance acceptable: [yes/no]
 ```
 
 ---
@@ -273,8 +345,12 @@ If using Claude, ChatGPT, Gemini, or other AI assistants:
 ### Starting a Session
 1. **Load AGENTS.md** (this file)
 2. **Scan folder structure** to understand current state
-3. **Identify active projects** (check status fields)
-4. **Ask user**: "What would you like to work on?"
+3. **Load memory files**:
+   - Read `MEMORY.md` (direct context only)
+   - Read today's and yesterday's daily logs from `memory/`
+   - Check `HEARTBEAT.md` for proactive reminders
+4. **Identify active projects** (check status fields)
+5. **Ask user**: "What would you like to work on?"
 
 ### During a Session
 1. **Include relevant context** - load files related to the task
@@ -323,6 +399,20 @@ If using Claude, ChatGPT, Gemini, or other AI assistants:
 5. Update Next Steps
 6. Commit: `Updated: [Project] - [what changed]`
 
+### Creating a Daily Log
+1. Copy `templates/daily-log.md` to `memory/YYYY-MM-DD.md`
+2. Fill in key activities, decisions, learnings
+3. Update `last_updated` field
+4. Add any open loops or tomorrow's priorities
+5. Commit: `Added: Daily log for YYYY-MM-DD`
+
+### Consolidating Memory
+1. Read recent daily logs from `memory/`
+2. Identify decisions, preferences, constraints
+3. Add to `MEMORY.md` with proper structure
+4. Remove outdated entries from MEMORY.md
+5. Commit: `Updated: MEMORY.md consolidated`
+
 ---
 
 ## Troubleshooting (Guidelines)
@@ -359,6 +449,9 @@ Track major system changes here:
 |------|--------|--------|
 | 2026-02-04 | Initial AGENTS.md created | Establish self-annealing system |
 | 2026-02-04 | Added Template Validation section + updated client-profile template | Fix schema violations (client_name→title, duplicates, redundant metadata) |
+| 2026-02-05 | Added Memory System (daily logs, MEMORY.md, HEARTBEAT.md) | Adopt OpenClaw patterns for session memory |
+| 2026-02-05 | Added SEARCH.md + scalability trigger at 500 files | Grep-based search with upgrade path to vector search |
+| 2026-02-05 | Integrated memory hygiene into self-annealing + health checks | Automated memory maintenance |
 
 ---
 
@@ -374,6 +467,6 @@ If you encounter problems with this system:
 
 ---
 
-**Last Updated**: 2026-02-04  
-**Version**: 1.0  
+**Last Updated**: 2026-02-05  
+**Version**: 1.1  
 **Status**: Active
